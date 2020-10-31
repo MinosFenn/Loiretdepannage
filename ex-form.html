@@ -1,0 +1,61 @@
+<div class="form w-form">
+    <!-- onsubmit="return validateForm()"    ng-submit='adduserForm.$valid && mainController(userForm.$valid)' -->
+
+    <form id="email-form" name="userForm" data-name="Email Form" action="form_process.php" method="post">
+
+      <div class="form-group"
+        ng-class="{ 'has-error' : userForm.surname.$invalid && !userForm.surname.$pristine }">
+        <input type="text" class="form-field w-input" name="surname" id="name-2" ng-model="user.surname"
+          ng-required="true" />
+        <!-- <p ng-show="userForm.surname.$invalid && !userForm.surname.$pristine" class="help-block">Votre prénom est requis.</p> -->
+        <p class="error" ng-show="userForm.surname.$invalid && userForm.surname.$touched">Entrez un prénom
+          valide</p>
+      </div>
+
+
+      <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+        <input type="text" class="form-field w-input" name="name" id="name-2" ng-model="user.name"
+          ng-required="true">
+        <!-- <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Votre nom est requis</p></div> -->
+        <p class="error" ng-show="userForm.name.$invalid && userForm.name.$touched">Entrez un nom valide</p></div>
+
+        <div class="form-group"
+          ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+          <input type="email" class="form-field w-input" name="email" data-name="Email 2" id="email-2"
+            ng-model="user.email" ng-required="true">
+          <!-- <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p></div> -->
+          <p class="error" ng-show="userForm.email.$invalid && userForm.email.$touched">Entrez un email valide
+          </p></div>
+          <div class="form-group"
+          ng-class="{ 'has-error' : userForm.phone.$invalid && !userForm.phone.$pristine }">
+          <input type="number" class="form-field w-input" name="phone" data-name="Phone 2" id="email-2"
+            ng-model="user.phone" ng-required="true"                    ng-minlength="10" 
+            ng-maxlength="10">
+          <p class="error" ng-show="userForm.phone.$invalid && userForm.phone.$touched" >Entrez un numéro de
+            téléphone valide</p>
+          </div>
+
+          <textarea id="field-2" name="field" ng-model="user.field" ng-minlength="50" maxlength="5000" data-name="Field 2"
+            class="text-area w-input" ng-required="true"></textarea>
+            <p class="error" ng-show="userForm.field.$invalid && userForm.field.$touched" >Entrez un message comprenant au moins 30 charactères !</p>
+
+          <button type="submit" ng-disabled="userForm.$invalid" name="submit" data-wait="En attente..."
+            class="button w-button">Envoyez votre message</button>
+
+    </form>
+
+    <div class="w-form-done">
+
+      <div>Loiret Dépannage vous remercie! Votre message a bien été reçu!</div>
+
+    </div>
+
+    <div class="w-form-fail">
+
+      <div>Mince! Un problème est survenu... Veuillez recommencer</div>
+
+    </div>
+
+  </div>
+
+</div>

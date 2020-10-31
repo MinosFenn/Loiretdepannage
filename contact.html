@@ -220,58 +220,68 @@ if (x.className === "nav-topnav") {
                 meilleurs délais!<br></p>
 
             </div>
-            <form name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true">              <p>
-                <label>Prénom et Nom:<br> <input type="text" name="name" /></label>   
-              </p>
-              <p>
-                <label>Votre adresse email:<br> <input type="email" name="email" /></label>
-              </p>
-              <p>
-                <label>Votre numéro de téléphone:<br> <input type="phone" name="phone" /></label>
-              </p>
-            
-              <p>
-                <label>Votre message:<br> <textarea name="message"></textarea></label>
-              </p>
-              <div data-netlify-recaptcha="true"></div>
-
-              <p>
-                <button type="submit" class="button">envoyer</button>
-              </p>
-            </form>   
-
-<!-- 
-            <form name="contact" method="POST" data-netlify="true">
-              <p>
-                <label>Nom: <input type="text" name="name" class="form-field w-input"/></label>  
-              </p> 
-              <p>
-                <label>Prénom: <input type="text" name="surname" class="form-field w-input"/></label>   
-              </p>
-              <p>
-                <label>Email: <input type="email" name="email" class="form-field w-input"/></label>
-              </p>
-              <p>
-                <label>Tel: <input type="phone" name="phone" class="form-field w-input"/></label>
-              </p>
-              <p>
-                <label>Vous êtes un: <select class="form-field w-input" name="role[]" multiple>
-                  <option value="leader">Particulier</option>
-                  <option value="follower">Professionel</option>
-                </select></label>
-              </p>
-              <p>
-                <label>Message: <textarea class="form-field w-input"name="message"></textarea></label>
-              </p>
-              <p>
-
-              <div data-netlify-recaptcha="true"></div>
-
-                <button type="submit" class="button w-button">Envoyez votre message</button>
-              </p>
-            </form> -->
-
-            
+            <div class="form w-form">
+              <!-- onsubmit="return validateForm()"    ng-submit='adduserForm.$valid && mainController(userForm.$valid)' -->
+          
+              <form id="email-form" name="userForm" data-name="Email Form" action="form_process.php" method="post">
+          
+                <div class="form-group"
+                  ng-class="{ 'has-error' : userForm.surname.$invalid && !userForm.surname.$pristine }">
+                  <input type="text" class="form-field w-input" name="surname" id="name-2" ng-model="user.surname"
+                    ng-required="true" />
+                  <!-- <p ng-show="userForm.surname.$invalid && !userForm.surname.$pristine" class="help-block">Votre prénom est requis.</p> -->
+                  <p class="error" ng-show="userForm.surname.$invalid && userForm.surname.$touched">Entrez un prénom
+                    valide</p>
+                </div>
+          
+          
+                <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                  <input type="text" class="form-field w-input" name="name" id="name-2" ng-model="user.name"
+                    ng-required="true">
+                  <!-- <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Votre nom est requis</p></div> -->
+                  <p class="error" ng-show="userForm.name.$invalid && userForm.name.$touched">Entrez un nom valide</p></div>
+          
+                  <div class="form-group"
+                    ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                    <input type="email" class="form-field w-input" name="email" data-name="Email 2" id="email-2"
+                      ng-model="user.email" ng-required="true">
+                    <!-- <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p></div> -->
+                    <p class="error" ng-show="userForm.email.$invalid && userForm.email.$touched">Entrez un email valide
+                    </p></div>
+                    <div class="form-group"
+                    ng-class="{ 'has-error' : userForm.phone.$invalid && !userForm.phone.$pristine }">
+                    <input type="number" class="form-field w-input" name="phone" data-name="Phone 2" id="email-2"
+                      ng-model="user.phone" ng-required="true"                    ng-minlength="10" 
+                      ng-maxlength="10">
+                    <p class="error" ng-show="userForm.phone.$invalid && userForm.phone.$touched" >Entrez un numéro de
+                      téléphone valide</p>
+                    </div>
+          
+                    <textarea id="field-2" name="field" ng-model="user.field" ng-minlength="50" maxlength="5000" data-name="Field 2"
+                      class="text-area w-input" ng-required="true"></textarea>
+                      <p class="error" ng-show="userForm.field.$invalid && userForm.field.$touched" >Entrez un message comprenant au moins 30 charactères !</p>
+          
+                    <button type="submit" ng-disabled="userForm.$invalid" name="submit" data-wait="En attente..."
+                      class="button w-button">Envoyez votre message</button>
+          
+              </form>
+          
+              <div class="w-form-done">
+          
+                <div>Loiret Dépannage vous remercie! Votre message a bien été reçu!</div>
+          
+              </div>
+          
+              <div class="w-form-fail">
+          
+                <div>Mince! Un problème est survenu... Veuillez recommencer</div>
+          
+              </div>
+          
+            </div>
+          
+          </div>
+          
         </div>
 
       </div>
@@ -378,7 +388,7 @@ if (x.className === "nav-topnav") {
 
   </div>
 </div>
-  <!-- <script>
+  <script>
     // create angular app
     var validationApp = angular.module('validationApp', []);
 
@@ -426,7 +436,7 @@ if (x.className === "nav-topnav") {
     //             });  
     //        }  
     //   });  
-  </script> -->
+  </script>
 
   <script src="https://d1tdp7z6w94jbb.cloudfront.net/js/jquery-3.3.1.min.js" type="text/javascript"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

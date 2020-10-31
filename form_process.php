@@ -6,7 +6,7 @@
 		$phone=$_POST['phone'];
 		$msg=$_POST['field'];
 
-		$to='contact@loiret-depannage.com'; // Receiver Email ID, Replace with your email ID
+		$to='joachim.simon.45@gmail.com'; // Receiver Email ID, Replace with your email ID
 		$subject='Message du formulaire Loiret dépannage';
 		$message="Name :".$name."\n"."Phone :".$phone."\n"."Wrote the following :"."\n\n".$msg;
 		$headers="From: ".$email;
@@ -16,7 +16,7 @@
       <a href=/index.html>Revenir à la page d'accueil</a>";
 		}
 		else{
-			echo "Something went wrong!";
+			echo "Nous avons rencontré un problème, veuillez recommencer !";
 		}
 	}
 ?>

@@ -220,8 +220,27 @@ if (x.className === "nav-topnav") {
                 meilleurs délais!<br></p>
 
             </div>
+            <form name="contact" method="POST" data-netlify="true">
+              <p>
+                <label>Prénom et Nom:<br> <input type="text" name="name" /></label>   
+              </p>
+              <p>
+                <label>Votre adresse email:<br> <input type="email" name="email" /></label>
+              </p>
+              <p>
+                <label>Votre numéro de téléphone:<br> <input type="phone" name="phone" /></label>
+              </p>
+            
+              <p>
+                <label>Votre message:<br> <textarea name="message"></textarea></label>
+              </p>
+              <p>
+                <div data-netlify-recaptcha="true"></div>
+                <button type="submit" class="button">envoyer</button>
+              </p>
+            </form>   
 
-
+<!-- 
             <form name="contact" method="POST" data-netlify="true">
               <p>
                 <label>Nom: <input type="text" name="name" class="form-field w-input"/></label>  
@@ -250,7 +269,7 @@ if (x.className === "nav-topnav") {
 
                 <button type="submit" class="button w-button">Envoyez votre message</button>
               </p>
-            </form>
+            </form> -->
 
             
         </div>

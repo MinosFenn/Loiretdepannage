@@ -222,8 +222,10 @@ if (x.className === "nav-topnav") {
             </div>
 
 
-            <form name="contact" method="POST" netlify>
-                <label>Nom: <input type="text" name="name" class="form-field w-input"/></label>   
+            <form name="contact" method="POST" data-netlify="true">
+              <p>
+                <label>Nom: <input type="text" name="name" class="form-field w-input"/></label>  
+              </p> 
               <p>
                 <label>Prénom: <input type="text" name="surname" class="form-field w-input"/></label>   
               </p>
@@ -242,9 +244,10 @@ if (x.className === "nav-topnav") {
               <p>
                 <label>Message: <textarea class="form-field w-input"name="message"></textarea></label>
               </p>
+              <p>
+
               <div data-netlify-recaptcha="true"></div>
 
-              <p>
                 <button type="submit" class="button w-button">Envoyez votre message</button>
               </p>
             </form>

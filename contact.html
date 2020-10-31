@@ -31,6 +31,8 @@
 
   <!-- load angular -->
   <script src="https://code.angularjs.org/1.4.0-rc.1/angular.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <script src="app.js"></script>
 
   <script>
@@ -221,15 +223,15 @@ if (x.className === "nav-topnav") {
 
 
             <form name="contact" method="POST" netlify>
-                <label>Nom: <input type="text" name="name" class="form-field w-input" ng-required="true" /></label>   
+                <label>Nom: <input type="text" name="name" class="form-field w-input"/></label>   
               <p>
-                <label>Prénom: <input type="text" name="surname" class="form-field w-input" ng-required="true"/></label>   
+                <label>Prénom: <input type="text" name="surname" class="form-field w-input"/></label>   
               </p>
               <p>
-                <label>Email: <input type="email" name="email" class="form-field w-input" ng-required="true"/></label>
+                <label>Email: <input type="email" name="email" class="form-field w-input"/></label>
               </p>
               <p>
-                <label>Tel: <input type="phone" name="phone" class="form-field w-input" ng-required="true"/></label>
+                <label>Tel: <input type="phone" name="phone" class="form-field w-input"/></label>
               </p>
               <p>
                 <label>Vous êtes un: <select class="form-field w-input" name="role[]" multiple>
@@ -238,7 +240,7 @@ if (x.className === "nav-topnav") {
                 </select></label>
               </p>
               <p>
-                <label>Message: <textarea class="form-field w-input"name="message" ng-required="true"></textarea></label>
+                <label>Message: <textarea class="form-field w-input"name="message"></textarea></label>
               </p>
               <div data-netlify-recaptcha="true"></div>
 
